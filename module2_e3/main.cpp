@@ -1,19 +1,36 @@
+
 #include "mbed.h"
+#include "lcd.h"
+#include "temperature.h"
+#include "uart.h"
 
-#define LCD_MOSI_PIN (PA_7)
-#define LCD_SCK_PIN (PA_5)
-#define LCD_CS_PIN (PA_6)
-#define TEMP_SCL_PIN (PB_8)
-#define TEMP_SDA_PIN (PB_9)
-#define USB_TX_PIN (PA_2)
-#define USB_RX_PIN (PA_3)
+#define PERIOD_PRINT_TEMP_S (1)
 
-Ticker tick;
-Serial pc(USB_TX_PIN, USB_RX_PIN);
-NHD_0216HZ lcd(LCD_CS_PIN, LCD_MOSI_PIN, LCD_SCK_PIN);
-I2C temp(TEMP_SDA_PIN, TEMP_SCL_PIN);
+Ticker timer_print_temp;
+
+void print_temp()
+{
+    float temp = temp_measure();
+    uart_printf("Current temperature: %5.2f deg C\r\n", temp);
+    lcd_printf("Temp: %5.2f%cC", temp, 0xDF);
+}
+
+void lcd_splash()
+{
+    lcd_printf("Hello World!");
+    wait(2);
+    lcd_clear();
+}
 
 int main()
-{
+{   
+    uart_init();
+    uart_printf("Hello mbed!\r\n");
+    
+    lcd_init();
+    lcd_splash();
+    
+    timer_print_temp.attach(print_temp, PERIOD_PRINT_TEMP_S);
+    
     while(1);
 }
