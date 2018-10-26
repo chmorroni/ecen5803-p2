@@ -28,9 +28,16 @@ int main()
     uart_printf("Hello mbed!\r\n");
     
     lcd_init();
+    
+    temp_init();
+    
     lcd_splash();
     
-    timer_print_temp.attach(print_temp, PERIOD_PRINT_TEMP_S);
+    //timer_print_temp.attach(print_temp, PERIOD_PRINT_TEMP_S);
     
-    while(1);
+    while(1)
+    {
+      print_temp();
+      wait(1);  
+    }
 }
