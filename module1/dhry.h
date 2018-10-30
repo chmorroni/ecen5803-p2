@@ -1,3 +1,14 @@
+/**
+\file dhry.h
+
+University of Colorado Boulder <br>
+ECEN 5803 Mastering Embedded System Architecture <br>
+Project 2 Module 1 <br>
+
+Header file used for Dhrystone benchmarking
+*/
+
+
 // Source obtained from https://fossies.org/dox/dhrystone-2.1/dhry_8h_source.html
 /*
  ****************************************************************************

@@ -1,3 +1,13 @@
+/**
+\file dhry_2.cpp
+
+University of Colorado Boulder <br>
+ECEN 5803 Mastering Embedded System Architecture <br>
+Project 2 Module 1 <br>
+
+Additional code used to conduct Dhrystone benchmarking
+*/
+
 // Source obtained from https://fossies.org/dox/dhrystone-2.1/dhry__2_8c_source.html
 /*
  ****************************************************************************
