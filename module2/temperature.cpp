@@ -18,8 +18,10 @@ Date of current revision:  11/3/18 <br>
 
 ///I2C address of the temperature sensor is 0x90 (as defined in the datasheet)
 #define TEMP_SENSOR_I2C_ADDRESS (0x90)
+
 ///Temperature sensor start command is 0x51 (as defined in the datasheet)
 #define TEMP_SENSOR_CMD_START (0x51)
+
 ///Temperature sensor read command is 0xAA (as defined in the datasheet)
 #define TEMP_SENSOR_CMD_READ (0xAA)
 
@@ -64,6 +66,6 @@ float temp_measure()
     temp_sensor_write_cmd(TEMP_SENSOR_CMD_READ); //write the command to the sensor to take a measurement
     temp_sensor.read(TEMP_SENSOR_I2C_ADDRESS, data, 2, false); //read the temperature data, storing the two bytes returned in the array "data"
     
-    data_combined = (data[0] << 8) | data[1]; //combined the data into one integer by shifting the most significant bits and filling in the bits they vacate with the least significant bits
-    return (data_combined >> 4) / 16.0f;
+    data_combined = (data[0] << 8) | data[1]; //combine the data into one integer by shifting the most significant bits and filling in the bits they vacate with the least significant bits
+    return (data_combined >> 4) / 16.0f; //algorithm provided by datasheet for converting data_comnbined into an actual temperature value in Celsius
 }

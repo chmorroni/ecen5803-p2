@@ -105,13 +105,16 @@ $(document).ready(function(){initNavTree('main_8cpp.html','');});
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:ab7dee2eafc61244682cfe6717d6e8124"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ab7dee2eafc61244682cfe6717d6e8124">PERIOD_PRINT_TEMP_S</a>&#160;&#160;&#160;(1)</td></tr>
+<tr class="memdesc:ab7dee2eafc61244682cfe6717d6e8124"><td class="mdescLeft">&#160;</td><td class="mdescRight">one second delay for use when printing the temperature to the screen  <a href="#ab7dee2eafc61244682cfe6717d6e8124">More...</a><br /></td></tr>
 <tr class="separator:ab7dee2eafc61244682cfe6717d6e8124"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4679d8ea8690999a6c6c7c0cb245c879"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a4679d8ea8690999a6c6c7c0cb245c879">THRESHOLD</a>&#160;&#160;&#160;(0.01f)</td></tr>
-<tr class="memdesc:a4679d8ea8690999a6c6c7c0cb245c879"><td class="mdescLeft">&#160;</td><td class="mdescRight">maximum threshold for the potentiometer we are using  <a href="#a4679d8ea8690999a6c6c7c0cb245c879">More...</a><br /></td></tr>
+<tr class="memdesc:a4679d8ea8690999a6c6c7c0cb245c879"><td class="mdescLeft">&#160;</td><td class="mdescRight">the smallest acceptable value change for the potentiometers we are using  <a href="#a4679d8ea8690999a6c6c7c0cb245c879">More...</a><br /></td></tr>
 <tr class="separator:a4679d8ea8690999a6c6c7c0cb245c879"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89fdc827243079d3c60cdd76cc1d7e02"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a89fdc827243079d3c60cdd76cc1d7e02">PWM_SET_INTERVAL_S</a>&#160;&#160;&#160;(0.01f)</td></tr>
+<tr class="memdesc:a89fdc827243079d3c60cdd76cc1d7e02"><td class="mdescLeft">&#160;</td><td class="mdescRight">interval used to adjust the PWM output waveform every 10ms  <a href="#a89fdc827243079d3c60cdd76cc1d7e02">More...</a><br /></td></tr>
 <tr class="separator:a89fdc827243079d3c60cdd76cc1d7e02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23247407c699c3c208a0069065513e66"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a23247407c699c3c208a0069065513e66">POT_PRINT_INTERVAL_S</a>&#160;&#160;&#160;(1.0f)</td></tr>
+<tr class="memdesc:a23247407c699c3c208a0069065513e66"><td class="mdescLeft">&#160;</td><td class="mdescRight">delay used to print a potentiometer value to the UART terminal every second  <a href="#a23247407c699c3c208a0069065513e66">More...</a><br /></td></tr>
 <tr class="separator:a23247407c699c3c208a0069065513e66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5850ceb4aa91940c137d201e58a84572"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a5850ceb4aa91940c137d201e58a84572">MIN_PERIOD_US</a>&#160;&#160;&#160;(125)</td></tr>
 <tr class="memdesc:a5850ceb4aa91940c137d201e58a84572"><td class="mdescLeft">&#160;</td><td class="mdescRight">minimum period value possible when changing the period of the output waveform  <a href="#a5850ceb4aa91940c137d201e58a84572">More...</a><br /></td></tr>
@@ -173,15 +176,18 @@ Variables</h2></td></tr>
 <tr class="memdesc:a5d7bf399c9615e1295fa8618c7d46094"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ticker object used to print the temperature periodically.  <a href="#a5d7bf399c9615e1295fa8618c7d46094">More...</a><br /></td></tr>
 <tr class="separator:a5d7bf399c9615e1295fa8618c7d46094"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d6fa5181da13c91827420a08c87305f"><td class="memItemLeft" align="right" valign="top">Ticker&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a7d6fa5181da13c91827420a08c87305f">timer_pwm_set</a></td></tr>
+<tr class="memdesc:a7d6fa5181da13c91827420a08c87305f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ticker object used to periodically run the function that sets the PWM signal.  <a href="#a7d6fa5181da13c91827420a08c87305f">More...</a><br /></td></tr>
 <tr class="separator:a7d6fa5181da13c91827420a08c87305f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62dee13b56b603a9e71599dd85b33c6b"><td class="memItemLeft" align="right" valign="top">Ticker&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a62dee13b56b603a9e71599dd85b33c6b">timer_pot_print</a></td></tr>
+<tr class="memdesc:a62dee13b56b603a9e71599dd85b33c6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ticker object used to periodically print the potentiometer value to the terminal.  <a href="#a62dee13b56b603a9e71599dd85b33c6b">More...</a><br /></td></tr>
 <tr class="separator:a62dee13b56b603a9e71599dd85b33c6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>University of Colorado Boulder <br />
  ECEN 5803 Mastering Embedded System Architecture <br />
 </p>
-<p>Main file of Project 2 Module 2</p>
+<p>Main file of Project 2 Module 2 <br />
+</p>
 <p>Designed by: Chris Morroni and Ranger Beguelin <br />
  Version: 1.0 <br />
  Date of current revision: 11/3/18 <br />
@@ -231,6 +237,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>one second delay for use when printing the temperature to the screen </p>
+
 </div>
 </div>
 <a id="a23247407c699c3c208a0069065513e66"></a>
@@ -244,6 +252,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>delay used to print a potentiometer value to the UART terminal every second </p>
 
 </div>
 </div>
@@ -259,6 +269,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>interval used to adjust the PWM output waveform every 10ms </p>
+
 </div>
 </div>
 <a id="a4679d8ea8690999a6c6c7c0cb245c879"></a>
@@ -273,7 +285,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>maximum threshold for the potentiometer we are using </p>
+<p>the smallest acceptable value change for the potentiometers we are using </p>
 
 </div>
 </div>
@@ -707,6 +719,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Ticker object used to periodically print the potentiometer value to the terminal. </p>
+
 </div>
 </div>
 <a id="a5d7bf399c9615e1295fa8618c7d46094"></a>
@@ -736,6 +750,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Ticker object used to periodically run the function that sets the PWM signal. </p>
 
 </div>
 </div>

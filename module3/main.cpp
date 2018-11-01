@@ -1,3 +1,15 @@
+/**
+\file main.cpp
+
+University of Colorado Boulder <br>
+ECEN 5803 Mastering Embedded System Architecture <br>
+
+Main file of Project 2 Module 3
+
+Designed by: Chris Morroni and Ranger Beguelin <br> 
+Version: 1.0 <br>
+Date of current revision:  11/3/18 <br>
+*/
 
 #include "mbed.h"
 #include "rtos.h"
@@ -8,38 +20,62 @@
 
 #include "pin_mapping.h"
 
-#define PERIOD_PRINT_TEMP_MS (2000)
+#define PERIOD_PRINT_TEMP_MS (2000) //2 second pause for printing
 #define PERIOD_PRINT_COUNT_MS (2000)
-#define PERIOD_LED_BLINK_MS (1000)
+#define PERIOD_LED_BLINK_MS (1000) //1 hz
 
+///Declare potentiometer 0 (used to adjust LED brightness) as an analog input
 AnalogIn brightness_pot(POT0_PIN);
+
+///PWM output for external (breadboard) LED
 PwmOut led_ld2_pwm(LED_LD2_PIN);
+
+///Mutex used to "lock" and "unlock" the lcd screen for printing
 Mutex lcd_mutex;
 
+/**
+* Name: print_temp_thread <br>
+* Description: This function prints the temperature to the LCD <br>
+* @param [in] none
+* @param [out] none
+*/
 void print_temp_thread()
 {
     float temp;
     while(1)
     {
-        temp = temp_measure();
-        lcd_mutex.lock();
-        lcd_printf("Temp: %5.2f%cC", temp, 0xDF);
-        lcd_mutex.unlock();
-        ThisThread::sleep_for(PERIOD_PRINT_TEMP_MS);
+        temp = temp_measure(); //take a temperature measurement
+        lcd_mutex.lock(); //"lock" the LCD so no other processes can write to it except this one
+        lcd_printf("Temp: %5.2f%cC", temp, 0xDF); //print the temperature reading
+        lcd_mutex.unlock(); //"unlock" the LCD so other processes can use it again
+        ThisThread::sleep_for(PERIOD_PRINT_TEMP_MS); //pause to allow the text to be displayed on the screen
     }
 }
 
+/**
+* Name: led_brightness_thread <br>
+* Description: This function adjusts the brighness of our external (breadboard) LED <br>
+* based on the value of potentiometer 0 <br>
+* @param [in] none
+* @param [out] none
+*/
 void led_brightness_thread()
 {
     float brightness_pot_val;
     while(1)
     {
-        brightness_pot_val = brightness_pot.read();
-        led_ld2_pwm.write(brightness_pot_val);
-        ThisThread::sleep_for(100);
+        brightness_pot_val = brightness_pot.read(); //read the current position of potentiometer 0, the one set used for brightness adjustment
+        led_ld2_pwm.write(brightness_pot_val); //set the brightness of the LED based on the position of the potentiometer
+        ThisThread::sleep_for(100); //pause to allow the brightness changes to be made
     }
 }
 
+/**
+* Name: print_counter_thread <br>
+* Description: This function prints a number that increases periodically <br>
+* @param [in] none
+* @param [out] none
+*/
 void print_counter_thread()
 {
     uint8_t count = 0;
@@ -49,10 +85,10 @@ void print_counter_thread()
     
     while(1)
     {
-        lcd_mutex.lock();
-        lcd_printf("Count: %2d", count);
-        lcd_mutex.unlock();
-        ThisThread::sleep_for(PERIOD_PRINT_COUNT_MS);
+        lcd_mutex.lock(); //"lock" the LCD so no other processes can write to it except this one
+        lcd_printf("Count: %2d", count); //print the count to the LCD
+        lcd_mutex.unlock(); //"unlock" the LCD so other processes can use it again
+        ThisThread::sleep_for(PERIOD_PRINT_COUNT_MS); //pause to allow the text to be displayed on the screen
         
         // increase count, bounding by 2 characters
         count++;
@@ -60,26 +96,37 @@ void print_counter_thread()
     }
 }
 
+/**
+* Name: print_counter_thread <br>
+* Description: This function blinks our external (breadboard) LED at a frequency of 1Hz <br>
+* @param [in] none
+* @param [out] none
+*/
 void led_blink_thread()
 {
     while(1)
     {
-        led_external_on();
-        ThisThread::sleep_for(PERIOD_LED_BLINK_MS / 2);
-        led_external_off();
-        ThisThread::sleep_for(PERIOD_LED_BLINK_MS / 2);
+        led_external_on(); //turn the breadboard LED on
+        ThisThread::sleep_for(PERIOD_LED_BLINK_MS / 2); //pause for 500ms
+        led_external_off(); //turn the breadboard LED off
+        ThisThread::sleep_for(PERIOD_LED_BLINK_MS / 2); //pause for 500ms
     }
 }
 
+/**
+* Name: main <br>
+* @param [in] none
+* @param [out] none
+*/
 int main()
 {
-    temp_sensor_init();
+    temp_sensor_init(); //initialize the temperature sensor on the I2C bus
     
-    lcd_init();
-    lcd_splash();
+    lcd_init(); //initialize the LCD
+    lcd_splash(); //print the LCD splash screen 
     
-    Thread thread0(osPriorityNormal, OS_STACK_SIZE, NULL);
-    thread0.start(print_temp_thread);
+    Thread thread0(osPriorityNormal, OS_STACK_SIZE, NULL); //create thread 0
+    thread0.start(print_temp_thread); //assigns ptrinting the temp to thread 0 (starts the thread too)
     Thread thread1(osPriorityNormal, OS_STACK_SIZE, NULL);
     thread1.start(led_brightness_thread);
     Thread thread2(osPriorityNormal, OS_STACK_SIZE, NULL);
@@ -89,6 +136,6 @@ int main()
     
     while(1)
     {
-        ThisThread::yield();
+        ThisThread::yield(); //main yields to other threads
     }
 }

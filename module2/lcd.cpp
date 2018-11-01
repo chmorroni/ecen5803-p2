@@ -4,7 +4,7 @@
 University of Colorado Boulder <br>
 ECEN 5803 Mastering Embedded System Architecture <br>
 
-LCD controls of Project 2 Module 2
+LCD controls for Project 2 Module 2 <br>
 
 Designed by: Chris Morroni and Ranger Beguelin <br> 
 Version: 1.0 <br>
@@ -127,20 +127,20 @@ void lcd_write_str(char * data)
 /**
 * Name: lcd_printf <br>
 * Description: this function writes strings to the LCD <br>
-* @param [in] const char * format
+* @param [in] const char * format, ...
 * @param [out] none
 */
 void lcd_printf(const char * format, ... )
 {
     char buffer[LCD_SCREEN_SIZE + 1];
     
-    va_list args;
-    va_start(args, format);
-    vsprintf(buffer, format, args);
-    va_end(args);
+    va_list args; //object that contains any extra arguments passed into the function after "format"
+    va_start(args, format); //initialize the object, put the additional arguments in the object
+    vsprintf(buffer, format, args); //put both format and the args object into the local buffer variable for printing (below)
+    va_end(args); //end the object
     
-    lcd_clear();
-    lcd_write_str(buffer);
+    lcd_clear(); //clear the LCD
+    lcd_write_str(buffer); //prints the buffer created above to the LCD
 }
 
 /**
