@@ -35,13 +35,13 @@ void uart_init()
 /**
 * Name: uart_init <br>
 * Description: this function initializes the uart serial connection at the defined baud rate <br>
-* @param [in] const char * format
+* @param [in] const char * format, ...
 * @param [out] none
 */
 void uart_printf(const char * format, ... )
 {
-    va_list args;
-    va_start(args, format);
-    pc.vprintf(format, args);
-    va_end(args);
+    va_list args; //object that contains any extra arguments passed into the function after "format"
+    va_start(args, format); //initialize the object, put the additional arguments in the object
+    pc.vprintf(format, args); //print the string containing the uart message (format) and the associated values (found in args)
+    va_end(args); //end the object
 }

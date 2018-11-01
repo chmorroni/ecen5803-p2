@@ -4,7 +4,7 @@
 University of Colorado Boulder <br>
 ECEN 5803 Mastering Embedded System Architecture <br>
 
-LCD function prototypes for Project 2 Module 3
+LCD function prototypes for Project 2 Module 3 <br>
 
 Designed by: Chris Morroni and Ranger Beguelin <br> 
 Version: 1.0 <br>

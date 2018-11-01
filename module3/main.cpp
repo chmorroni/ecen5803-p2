@@ -4,7 +4,7 @@
 University of Colorado Boulder <br>
 ECEN 5803 Mastering Embedded System Architecture <br>
 
-Main file of Project 2 Module 3
+Main file of Project 2 Module 3 <br>
 
 Designed by: Chris Morroni and Ranger Beguelin <br> 
 Version: 1.0 <br>
@@ -20,14 +20,19 @@ Date of current revision:  11/3/18 <br>
 
 #include "pin_mapping.h"
 
-#define PERIOD_PRINT_TEMP_MS (2000) //2 second pause for printing
+///2 second pause used when printing temperatures to the LCD
+#define PERIOD_PRINT_TEMP_MS (2000)
+
+///2 second pause used when printing the count variable to the LCD
 #define PERIOD_PRINT_COUNT_MS (2000)
-#define PERIOD_LED_BLINK_MS (1000) //1 hz
+
+///value to set the frequency of the blinking LED to 1Hz
+#define PERIOD_LED_BLINK_MS (1000)
 
 ///Declare potentiometer 0 (used to adjust LED brightness) as an analog input
 AnalogIn brightness_pot(POT0_PIN);
 
-///PWM output for external (breadboard) LED
+///PWM output for the onboard LED
 PwmOut led_ld2_pwm(LED_LD2_PIN);
 
 ///Mutex used to "lock" and "unlock" the lcd screen for printing
@@ -126,16 +131,16 @@ int main()
     lcd_splash(); //print the LCD splash screen 
     
     Thread thread0(osPriorityNormal, OS_STACK_SIZE, NULL); //create thread 0
-    thread0.start(print_temp_thread); //assigns ptrinting the temp to thread 0 (starts the thread too)
-    Thread thread1(osPriorityNormal, OS_STACK_SIZE, NULL);
-    thread1.start(led_brightness_thread);
-    Thread thread2(osPriorityNormal, OS_STACK_SIZE, NULL);
-    thread2.start(print_counter_thread);
-    Thread thread3(osPriorityNormal, OS_STACK_SIZE, NULL);
-    thread3.start(led_blink_thread);
+    thread0.start(print_temp_thread); //assign print_temp_thread to thread 0, then start the thread
+    Thread thread1(osPriorityNormal, OS_STACK_SIZE, NULL); //create thread 1
+    thread1.start(led_brightness_thread); //assign led_brightness_thread to thread 1, then start the thread
+    Thread thread2(osPriorityNormal, OS_STACK_SIZE, NULL); //create thread 2
+    thread2.start(print_counter_thread); //assign print_counter_thread to thread 2, then start the thread
+    Thread thread3(osPriorityNormal, OS_STACK_SIZE, NULL); //create thread 3
+    thread3.start(led_blink_thread); //assign led_blink_thread to thread 3, then start the thread
     
     while(1)
     {
-        ThisThread::yield(); //main yields to other threads
+        ThisThread::yield(); //make main yield to other threads
     }
 }
