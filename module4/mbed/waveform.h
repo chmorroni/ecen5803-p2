@@ -4,7 +4,7 @@
 University of Colorado Boulder <br>
 ECEN 5803 Mastering Embedded System Architecture <br>
 
-1004 Hz lookup table at 20kHz sample rate for use in Project 2 Module 4 <br>
+1004 Hz lookup table at 192kHz sample rate for use in Project 2 Module 4 <br>
 
 Designed by: Chris Morroni and Ranger Beguelin <br> 
 Version: 1.0 <br>
