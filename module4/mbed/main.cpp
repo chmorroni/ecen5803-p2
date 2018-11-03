@@ -35,7 +35,7 @@ DigitalOut dbg_fft(DBG_FFT_PIN);
 Ticker dac_timer;
 
 uint16_t wave_buffer_0[FFT_SIZE];
-uint8_t wave_buffer_0_ready = false;
+bool wave_buffer_0_ready = false;
 uint16_t wave_buffer_1[FFT_SIZE];
 bool wave_buffer_1_ready = false;
 
@@ -74,7 +74,7 @@ void systick_init()
 */
 int main()
 {
-    uint8_t fft_go = false;
+    bool fft_go = false;
     uint16_t * adc_buffer;
     float fft_samples[FFT_SIZE];
     float fft_freqs[FFT_SIZE];
