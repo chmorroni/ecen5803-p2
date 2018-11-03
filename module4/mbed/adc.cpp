@@ -67,3 +67,14 @@ void adc_init()
  
     HAL_ADC_ConfigChannel(&hadc, &adcChannel);
 }
+
+/**
+* Name: adc_read <br>
+* Description: This function triggers an ADC read <br>
+* @param [in] none
+* @param [out] none
+*/
+void adc_read()
+{
+    ADC1->CR2 |= ADC_CR2_SWSTART;
+}

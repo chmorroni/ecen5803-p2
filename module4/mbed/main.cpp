@@ -14,10 +14,11 @@ Date of current revision:  11/3/18 <br>
 #include "mbed.h"
 #include "arm_math.h"
 #include "adc.h"
+#include "dac.h"
 #include "dma.h"
+#include "led_pwm.h"
 #include "pin_mapping.h"
 #include "uart.h"
-#include "waveform.h"
 
 #define SAMPLE_PERIOD_US (52.08f)
 #define SAMPLE_FREQ_HZ (1000000.0f / SAMPLE_PERIOD_US)
@@ -25,57 +26,18 @@ Date of current revision:  11/3/18 <br>
 #define FFT_BIN_SIZE_HZ (23.4375f)
 #define MAG_THRESHOLD (100.0f)
 
-#define DAC_FREQ_HZ (20000)
-#define DAC_PERIOD_US (50)
-
 #define SYSTICK_INTERRUPT_CYCLES (437)
 
 #define ADC_BUCKET_SIZE (0.00080566406f)
 
-PwmOut led_ld2_pwm(LED_LD2_PIN);
-PwmOut wave_out(WAVE_OUT_PIN);
 DigitalOut dbg_interrupt(DBG_INTERRUPT_PIN);
 DigitalOut dbg_fft(DBG_FFT_PIN);
 Ticker dac_timer;
 
 uint16_t wave_buffer_0[FFT_SIZE];
-bool wave_buffer_0_ready = false;
+uint8_t wave_buffer_0_ready = false;
 uint16_t wave_buffer_1[FFT_SIZE];
 bool wave_buffer_1_ready = false;
-
-/**
-* Name: adc_read <br>
-* Description: This function triggers an ADC read <br>
-* @param [in] none
-* @param [out] none
-*/
-void adc_read()
-{
-    ADC1->CR2 |= ADC_CR2_SWSTART;
-}
-
-/**
-* Name: dac_write <br>
-* Description: This function writes a value from a lookup table to PWM <br>
-* @param [in] none
-* @param [out] none
-*/
-void dac_write()
-{
-    static uint32_t idx = 0;
-//    static uint8_t mirrored = false;
-//    static int8_t direction = 1;
-    
-    float val = waveform[idx];
-//    val = (mirrored == true) ? 3.3f - val : val;
-    wave_out.write(val / 3.3f);
-    
-//    if(direction == 1 && idx == 12000) direction = -1;
-//    else if(direction == -1 && idx == 0) direction = 1;
-//    idx += direction;
-    if(idx == WAVEFORM_LEN) idx = 0;
-    else idx++;
-}
 
 /**
 * Name: SysTick_Handler <br>
@@ -87,6 +49,7 @@ extern "C" void SysTick_Handler()
 {
     dbg_interrupt = true;
     adc_read();
+    dac_write();
     dbg_interrupt = false;
 }
 
@@ -111,24 +74,21 @@ void systick_init()
 */
 int main()
 {
-    bool fft_go = false;
+    uint8_t fft_go = false;
     uint16_t * adc_buffer;
     float fft_samples[FFT_SIZE];
     float fft_freqs[FFT_SIZE];
     arm_rfft_fast_instance_f32 fft;
     float largest, largest_idx, major_freq;
     
+    // initialization functions
     dma_init_double_buffered(wave_buffer_0, wave_buffer_1, FFT_SIZE);
     adc_init();
-    uart_init();
+    daq_init();
+    pwm_led_init();
     systick_init();
-    
-    uart_printf("Hello World!\r\n");
-    
+    uart_init();
     arm_rfft_fast_init_f32(&fft, FFT_SIZE);
-    
-    led_ld2_pwm.write(0.5f);
-    led_ld2_pwm.period(0.00099601593f);
     
     while(1)
     {
@@ -172,7 +132,7 @@ int main()
             major_freq = largest > MAG_THRESHOLD ? largest_idx * FFT_BIN_SIZE_HZ : 0;
             
             uart_printf("%5.2f: %5.2f\r\n", major_freq, largest);
-            led_ld2_pwm.write(major_freq / 10000);
+            pwm_led_write(major_freq / 10000);
 
             dbg_fft = false;
         }

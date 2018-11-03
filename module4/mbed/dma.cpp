@@ -16,8 +16,8 @@ Examples found here: http://www.lucadavidian.com/2017/11/17/stm32f4-using-the-dm
 #include "mbed.h"
 #include "dma.h"
 
-extern bool wave_buffer_0_ready;
-extern bool wave_buffer_1_ready;
+extern uint8_t wave_buffer_0_ready;
+extern uint8_t wave_buffer_1_ready;
 
 /**
 * Name: dma_init_double_buffered <br>
