@@ -292,7 +292,7 @@ void Proc_5()
 /* Procedure for the assignment of structures,          */
 /* if the C compiler doesn't support this feature       */
 #ifdef  NOSTRUCTASSIGN
-memcpy (d, s, l)
+memcpy (d, s, l);
 register char *d;
 register char *s;
 register int l;

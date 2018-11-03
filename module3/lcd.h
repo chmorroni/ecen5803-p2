@@ -19,7 +19,6 @@ Date of current revision:  11/3/18 <br>
 
 void lcd_init();
 void lcd_clear();
-void lcd_set_cursor(uint8_t pos);
 void lcd_write_char(uint8_t data);
 void lcd_write_str(char * data);
 void lcd_printf(const char * format, ... );

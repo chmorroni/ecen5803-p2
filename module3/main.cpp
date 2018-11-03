@@ -16,7 +16,6 @@ Date of current revision:  11/3/18 <br>
 #include "lcd.h"
 #include "led.h"
 #include "temperature.h"
-#include "uart.h"
 
 #include "pin_mapping.h"
 
@@ -46,9 +45,9 @@ Mutex lcd_mutex;
 */
 void print_temp_thread()
 {
-    float temp;
     while(1)
     {
+        float temp;
         temp = temp_measure(); //take a temperature measurement
         lcd_mutex.lock(); //"lock" the LCD so no other processes can write to it except this one
         lcd_printf("Temp: %5.2f%cC", temp, 0xDF); //print the temperature reading
@@ -66,9 +65,9 @@ void print_temp_thread()
 */
 void led_brightness_thread()
 {
-    float brightness_pot_val;
     while(1)
     {
+        float brightness_pot_val;
         brightness_pot_val = brightness_pot.read(); //read the current position of potentiometer 0, the one set used for brightness adjustment
         led_ld2_pwm.write(brightness_pot_val); //set the brightness of the LED based on the position of the potentiometer
         ThisThread::sleep_for(100); //pause to allow the brightness changes to be made

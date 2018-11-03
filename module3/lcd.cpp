@@ -154,17 +154,6 @@ void lcd_clear()
     lcd_write_ins(0x01, LCD_DELAY_LONG_US);
 }
 
-/**
-* Name: lcd_set_cursor <br>
-* Description: this function puts the cursor in the position designated by the user <br>
-* @param [in] uint8_t pos
-* @param [out] none
-*/
-void lcd_set_cursor(uint8_t pos)
-{
-    uint8_t ins = 0x80 | (pos & 0x7f); //define a cursor position
-    lcd_write_ins(ins, LCD_DELAY_LONG_US); //write the instruction to the LCD so it knows where to put the cursor
-}
 
 /**
 * Name: lcd_splash <br>
