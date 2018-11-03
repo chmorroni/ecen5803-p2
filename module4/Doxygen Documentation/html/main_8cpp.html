@@ -99,10 +99,11 @@ $(document).ready(function(){initNavTree('main_8cpp.html','');});
 <div class="textblock"><code>#include &quot;mbed.h&quot;</code><br />
 <code>#include &quot;arm_math.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="adc_8h_source.html">adc.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="dac_8h_source.html">dac.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="dma_8h_source.html">dma.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="led__pwm_8h_source.html">led_pwm.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="pin__mapping_8h_source.html">pin_mapping.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="uart_8h_source.html">uart.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="waveform_8h_source.html">waveform.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
@@ -116,10 +117,6 @@ Macros</h2></td></tr>
 <tr class="separator:ac466e4c9587e9ef5ddab38cdd2d4dd48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8073b4b31f0a25ed2809db7480ad115"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ab8073b4b31f0a25ed2809db7480ad115">MAG_THRESHOLD</a>&#160;&#160;&#160;(100.0f)</td></tr>
 <tr class="separator:ab8073b4b31f0a25ed2809db7480ad115"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2eae199a3551543aa18dcf1d9cdc116"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ac2eae199a3551543aa18dcf1d9cdc116">DAC_FREQ_HZ</a>&#160;&#160;&#160;(20000)</td></tr>
-<tr class="separator:ac2eae199a3551543aa18dcf1d9cdc116"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bb71d0299ddb120b4d1e92dc42d902e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a3bb71d0299ddb120b4d1e92dc42d902e">DAC_PERIOD_US</a>&#160;&#160;&#160;(50)</td></tr>
-<tr class="separator:a3bb71d0299ddb120b4d1e92dc42d902e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e8d4850e853f6a0694fc1aae7ae84f1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a8e8d4850e853f6a0694fc1aae7ae84f1">SYSTICK_INTERRUPT_CYCLES</a>&#160;&#160;&#160;(437)</td></tr>
 <tr class="separator:a8e8d4850e853f6a0694fc1aae7ae84f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2bc738c1278ad48d8048732e83a4a72"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ad2bc738c1278ad48d8048732e83a4a72">ADC_BUCKET_SIZE</a>&#160;&#160;&#160;(0.00080566406f)</td></tr>
@@ -127,18 +124,10 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a736c208085e86635c97195bc2dc988a7"><td class="memItemLeft" align="right" valign="top">PwmOut&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a736c208085e86635c97195bc2dc988a7">led_ld2_pwm</a> (<a class="el" href="pin__mapping_8h.html#a09f784b1944490b09408240b1d3306ba">LED_LD2_PIN</a>)</td></tr>
-<tr class="separator:a736c208085e86635c97195bc2dc988a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a8e3ad936024633bb4fad5d728e13b2"><td class="memItemLeft" align="right" valign="top">PwmOut&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a4a8e3ad936024633bb4fad5d728e13b2">wave_out</a> (<a class="el" href="pin__mapping_8h.html#ac94d180ff26f99ad1cd725d6c405b327">WAVE_OUT_PIN</a>)</td></tr>
-<tr class="separator:a4a8e3ad936024633bb4fad5d728e13b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17f187103fa68d44bec71f35f9edaeec"><td class="memItemLeft" align="right" valign="top">DigitalOut&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a17f187103fa68d44bec71f35f9edaeec">dbg_interrupt</a> (<a class="el" href="pin__mapping_8h.html#a9fbe959e322c85806513aadcfb19a8fe">DBG_INTERRUPT_PIN</a>)</td></tr>
 <tr class="separator:a17f187103fa68d44bec71f35f9edaeec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea58cf34633d8767ee7d2f9993dc5f33"><td class="memItemLeft" align="right" valign="top">DigitalOut&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#aea58cf34633d8767ee7d2f9993dc5f33">dbg_fft</a> (<a class="el" href="pin__mapping_8h.html#aa60443636b2e3c6cc71383ca4d12f9eb">DBG_FFT_PIN</a>)</td></tr>
 <tr class="separator:aea58cf34633d8767ee7d2f9993dc5f33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3f72afc0da43bd267a3a61cd15e9701"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ac3f72afc0da43bd267a3a61cd15e9701">adc_read</a> ()</td></tr>
-<tr class="separator:ac3f72afc0da43bd267a3a61cd15e9701"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaaff1a0733e0ebdb2f798a8efbeaefa6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#aaaff1a0733e0ebdb2f798a8efbeaefa6">dac_write</a> ()</td></tr>
-<tr class="separator:aaaff1a0733e0ebdb2f798a8efbeaefa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafb8d3e0fd06464b1ee0ae1edbc3c7d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#aafb8d3e0fd06464b1ee0ae1edbc3c7d6">SysTick_Handler</a> ()</td></tr>
 <tr class="separator:aafb8d3e0fd06464b1ee0ae1edbc3c7d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9aa36d552575fbf247d82a6d230831bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a9aa36d552575fbf247d82a6d230831bd">systick_init</a> ()</td></tr>
@@ -152,12 +141,12 @@ Variables</h2></td></tr>
 <tr class="separator:a73902cc846e815c327710cbbe2a8304c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae67ffb363eaea1d0acaeb9dd02773246"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ae67ffb363eaea1d0acaeb9dd02773246">wave_buffer_0</a> [<a class="el" href="main_8cpp.html#a636ddc19af00bc87969a07c88331f105">FFT_SIZE</a>]</td></tr>
 <tr class="separator:ae67ffb363eaea1d0acaeb9dd02773246"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6ea7a5638ca752e6907f61f91888610"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ae6ea7a5638ca752e6907f61f91888610">wave_buffer_0_ready</a> = false</td></tr>
-<tr class="separator:ae6ea7a5638ca752e6907f61f91888610"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2eb032c877925fa5ec5953f8e847fda"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#af2eb032c877925fa5ec5953f8e847fda">wave_buffer_0_ready</a> = false</td></tr>
+<tr class="separator:af2eb032c877925fa5ec5953f8e847fda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a456e92dd86c0b88edf6c5b49f3872214"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a456e92dd86c0b88edf6c5b49f3872214">wave_buffer_1</a> [<a class="el" href="main_8cpp.html#a636ddc19af00bc87969a07c88331f105">FFT_SIZE</a>]</td></tr>
 <tr class="separator:a456e92dd86c0b88edf6c5b49f3872214"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9abdaacb5073950fbb43d233ed226250"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a9abdaacb5073950fbb43d233ed226250">wave_buffer_1_ready</a> = false</td></tr>
-<tr class="separator:a9abdaacb5073950fbb43d233ed226250"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa84e2c5766c1ddbb44a34dabd2dea2bc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#aa84e2c5766c1ddbb44a34dabd2dea2bc">wave_buffer_1_ready</a> = false</td></tr>
+<tr class="separator:aa84e2c5766c1ddbb44a34dabd2dea2bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>University of Colorado Boulder <br />
@@ -178,34 +167,6 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">#define ADC_BUCKET_SIZE&#160;&#160;&#160;(0.00080566406f)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac2eae199a3551543aa18dcf1d9cdc116"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2eae199a3551543aa18dcf1d9cdc116">&#9670;&nbsp;</a></span>DAC_FREQ_HZ</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DAC_FREQ_HZ&#160;&#160;&#160;(20000)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3bb71d0299ddb120b4d1e92dc42d902e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3bb71d0299ddb120b4d1e92dc42d902e">&#9670;&nbsp;</a></span>DAC_PERIOD_US</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DAC_PERIOD_US&#160;&#160;&#160;(50)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -297,58 +258,6 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ac3f72afc0da43bd267a3a61cd15e9701"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac3f72afc0da43bd267a3a61cd15e9701">&#9670;&nbsp;</a></span>adc_read()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void adc_read </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Name: adc_read <br />
- Description: This function triggers an ADC read <br />
- </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">none</td><td></td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="aaaff1a0733e0ebdb2f798a8efbeaefa6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaaff1a0733e0ebdb2f798a8efbeaefa6">&#9670;&nbsp;</a></span>dac_write()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void dac_write </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Name: dac_write <br />
- Description: This function writes a value from a lookup table to PWM <br />
- </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">none</td><td></td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="aea58cf34633d8767ee7d2f9993dc5f33"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aea58cf34633d8767ee7d2f9993dc5f33">&#9670;&nbsp;</a></span>dbg_fft()</h2>
 
@@ -377,24 +286,6 @@ Variables</h2></td></tr>
           <td class="memname">DigitalOut dbg_interrupt </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="pin__mapping_8h.html#a9fbe959e322c85806513aadcfb19a8fe">DBG_INTERRUPT_PIN</a>&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a736c208085e86635c97195bc2dc988a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a736c208085e86635c97195bc2dc988a7">&#9670;&nbsp;</a></span>led_ld2_pwm()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">PwmOut led_ld2_pwm </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="pin__mapping_8h.html#a09f784b1944490b09408240b1d3306ba">LED_LD2_PIN</a>&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -481,24 +372,6 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a4a8e3ad936024633bb4fad5d728e13b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a8e3ad936024633bb4fad5d728e13b2">&#9670;&nbsp;</a></span>wave_out()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">PwmOut wave_out </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="pin__mapping_8h.html#ac94d180ff26f99ad1cd725d6c405b327">WAVE_OUT_PIN</a>&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <h2 class="groupheader">Variable Documentation</h2>
 <a id="a73902cc846e815c327710cbbe2a8304c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a73902cc846e815c327710cbbe2a8304c">&#9670;&nbsp;</a></span>dac_timer</h2>
@@ -528,14 +401,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ae6ea7a5638ca752e6907f61f91888610"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae6ea7a5638ca752e6907f61f91888610">&#9670;&nbsp;</a></span>wave_buffer_0_ready</h2>
+<a id="af2eb032c877925fa5ec5953f8e847fda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2eb032c877925fa5ec5953f8e847fda">&#9670;&nbsp;</a></span>wave_buffer_0_ready</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t wave_buffer_0_ready = false</td>
+          <td class="memname">bool wave_buffer_0_ready = false</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -556,14 +429,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a9abdaacb5073950fbb43d233ed226250"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9abdaacb5073950fbb43d233ed226250">&#9670;&nbsp;</a></span>wave_buffer_1_ready</h2>
+<a id="aa84e2c5766c1ddbb44a34dabd2dea2bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa84e2c5766c1ddbb44a34dabd2dea2bc">&#9670;&nbsp;</a></span>wave_buffer_1_ready</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t wave_buffer_1_ready = false</td>
+          <td class="memname">bool wave_buffer_1_ready = false</td>
         </tr>
       </table>
 </div><div class="memdoc">

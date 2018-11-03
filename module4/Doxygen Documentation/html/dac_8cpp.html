@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Project 2 Module 4: adc.h File Reference</title>
+<title>Project 2 Module 4: dac.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,7 +69,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('adc_8h.html','');});
+$(document).ready(function(){initNavTree('dac_8cpp.html','');});
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -91,47 +91,47 @@ $(document).ready(function(){initNavTree('adc_8h.html','');});
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">adc.h File Reference</div>  </div>
+<div class="title">dac.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p><a href="adc_8h_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+<div class="textblock"><code>#include &quot;mbed.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="waveform_8h_source.html">waveform.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="dac_8h_source.html">dac.h</a>&quot;</code><br />
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a1e942fcd91f79d49e4ddb8d7e9d3ef95"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adc_8h.html#a1e942fcd91f79d49e4ddb8d7e9d3ef95">adc_init</a> ()</td></tr>
-<tr class="separator:a1e942fcd91f79d49e4ddb8d7e9d3ef95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3f72afc0da43bd267a3a61cd15e9701"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adc_8h.html#ac3f72afc0da43bd267a3a61cd15e9701">adc_read</a> ()</td></tr>
-<tr class="separator:ac3f72afc0da43bd267a3a61cd15e9701"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a985adedf319a21d92f7c86fd3ba39374"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dac_8cpp.html#a985adedf319a21d92f7c86fd3ba39374">daq_init</a> ()</td></tr>
+<tr class="separator:a985adedf319a21d92f7c86fd3ba39374"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaaff1a0733e0ebdb2f798a8efbeaefa6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dac_8cpp.html#aaaff1a0733e0ebdb2f798a8efbeaefa6">dac_write</a> ()</td></tr>
+<tr class="separator:aaaff1a0733e0ebdb2f798a8efbeaefa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>University of Colorado Boulder <br />
  ECEN 5803 Mastering Embedded System Architecture <br />
 </p>
-<p>ADC functions for Project 2 Module 4 <br />
+<p>DAC functions for Project 2 Module 4 <br />
 </p>
 <p>Designed by: Chris Morroni and Ranger Beguelin <br />
  Version: 1.0 <br />
  Date of current revision: 11/3/18 <br />
-</p>
-<p>Examples found here: <a href="https://visualgdb.com/tutorials/arm/stm32/adc/">https://visualgdb.com/tutorials/arm/stm32/adc/</a> </p>
+ </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a1e942fcd91f79d49e4ddb8d7e9d3ef95"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e942fcd91f79d49e4ddb8d7e9d3ef95">&#9670;&nbsp;</a></span>adc_init()</h2>
+<a id="aaaff1a0733e0ebdb2f798a8efbeaefa6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaaff1a0733e0ebdb2f798a8efbeaefa6">&#9670;&nbsp;</a></span>dac_write()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void adc_init </td>
+          <td class="memname">void dac_write </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Name: adc_init <br />
- Description: This function initializes the ADC to convert in non-continuous mode and trigger the DMA <br />
+<p>Name: dac_write <br />
+ Description: This function writes a value from a lookup table to PWM <br />
  </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">none</td><td></td></tr>
@@ -142,22 +142,22 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ac3f72afc0da43bd267a3a61cd15e9701"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac3f72afc0da43bd267a3a61cd15e9701">&#9670;&nbsp;</a></span>adc_read()</h2>
+<a id="a985adedf319a21d92f7c86fd3ba39374"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a985adedf319a21d92f7c86fd3ba39374">&#9670;&nbsp;</a></span>daq_init()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void adc_read </td>
+          <td class="memname">void daq_init </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Name: adc_read <br />
- Description: This function triggers an ADC read <br />
+<p>Name: dac_init <br />
+ Description: This function initializes Timer 3 to PWM the waveform out pin <br />
  </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">none</td><td></td></tr>
@@ -173,7 +173,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="adc_8h.html">adc.h</a></li>
+    <li class="navelem"><a class="el" href="dac_8cpp.html">dac.cpp</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
