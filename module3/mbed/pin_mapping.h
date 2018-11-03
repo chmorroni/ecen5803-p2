@@ -54,7 +54,7 @@ Header file used for mapping STM NUCLEO F401RE pins to their physical components
 ///LCD data-bus pin 5 is attached to pin PC_1
 #define LCD_DB5 (PC_1)
 ///LCD data-bus pin 4 is attached to pin PC_0
-#define LCD_DB4 (PC_0)
+#define LCD_DB4 (PA_8)
 
 /* I2C Temperature Sensor */
 
