@@ -18,7 +18,6 @@ var searchData=
   ['lcd_5fprintf',['lcd_printf',['../lcd_8cpp.html#a3c12e31b86febabfc7e62b51e0b9dc30',1,'lcd_printf(const char *format,...):&#160;lcd.cpp'],['../lcd_8h.html#a3c12e31b86febabfc7e62b51e0b9dc30',1,'lcd_printf(const char *format,...):&#160;lcd.cpp']]],
   ['lcd_5frs',['LCD_RS',['../pin__mapping_8h.html#a4781e073871c6f27f89b9463ad3a4ed1',1,'LCD_RS():&#160;pin_mapping.h'],['../lcd_8cpp.html#a71f371524b3288d7b0fd267051cc35df',1,'lcd_rs(LCD_RS):&#160;lcd.cpp']]],
   ['lcd_5fscreen_5fsize',['LCD_SCREEN_SIZE',['../lcd_8cpp.html#a76ad0964f1591cf2c58c11251a9a64b1',1,'lcd.cpp']]],
-  ['lcd_5fset_5fcursor',['lcd_set_cursor',['../lcd_8cpp.html#a53eb54ae113a7f8efab116263d7d0f3f',1,'lcd_set_cursor(uint8_t pos):&#160;lcd.cpp'],['../lcd_8h.html#a53eb54ae113a7f8efab116263d7d0f3f',1,'lcd_set_cursor(uint8_t pos):&#160;lcd.cpp']]],
   ['lcd_5fsplash',['lcd_splash',['../lcd_8cpp.html#a9e0e17291b8140e20094bf8593ad14f1',1,'lcd_splash():&#160;lcd.cpp'],['../lcd_8h.html#a9e0e17291b8140e20094bf8593ad14f1',1,'lcd_splash():&#160;lcd.cpp']]],
   ['lcd_5fwrite',['lcd_write',['../lcd_8cpp.html#aee74cf01d0b8c77fd2cfee3ff768cce7',1,'lcd.cpp']]],
   ['lcd_5fwrite_5fchar',['lcd_write_char',['../lcd_8cpp.html#ac0e9243ec53d4e55ba012ed496027e4d',1,'lcd_write_char(uint8_t data):&#160;lcd.cpp'],['../lcd_8h.html#ac0e9243ec53d4e55ba012ed496027e4d',1,'lcd_write_char(uint8_t data):&#160;lcd.cpp']]],
@@ -32,9 +31,6 @@ var searchData=
   ['led_5fexternal_5foff',['led_external_off',['../led_8cpp.html#a82f80175fe31dd8a926fefa6811e0d7c',1,'led_external_off():&#160;led.cpp'],['../led_8h.html#a82f80175fe31dd8a926fefa6811e0d7c',1,'led_external_off():&#160;led.cpp']]],
   ['led_5fexternal_5fon',['led_external_on',['../led_8cpp.html#a15aaf5225a2b903bc5827d424eb26602',1,'led_external_on():&#160;led.cpp'],['../led_8h.html#a15aaf5225a2b903bc5827d424eb26602',1,'led_external_on():&#160;led.cpp']]],
   ['led_5fexternal_5fpin',['LED_EXTERNAL_PIN',['../pin__mapping_8h.html#a82faeced3bcfe38357b72e5505ace52f',1,'pin_mapping.h']]],
-  ['led_5fld2',['led_ld2',['../led_8cpp.html#a38555826f80ec8afd171eebd863f4539',1,'led.cpp']]],
-  ['led_5fld2_5foff',['led_ld2_off',['../led_8cpp.html#a53eeb5c990909cf5ee51d220adaba88b',1,'led_ld2_off():&#160;led.cpp'],['../led_8h.html#a53eeb5c990909cf5ee51d220adaba88b',1,'led_ld2_off():&#160;led.cpp']]],
-  ['led_5fld2_5fon',['led_ld2_on',['../led_8cpp.html#a040276d5322abc10b275ccc1166cd195',1,'led_ld2_on():&#160;led.cpp'],['../led_8h.html#a040276d5322abc10b275ccc1166cd195',1,'led_ld2_on():&#160;led.cpp']]],
   ['led_5fld2_5fpin',['LED_LD2_PIN',['../pin__mapping_8h.html#a09f784b1944490b09408240b1d3306ba',1,'pin_mapping.h']]],
   ['led_5fld2_5fpwm',['led_ld2_pwm',['../main_8cpp.html#a736c208085e86635c97195bc2dc988a7',1,'main.cpp']]],
   ['lpticker_5fdelay_5fticks',['LPTICKER_DELAY_TICKS',['../mbed__config_8h.html#af8fd1890f56720f358b758637e8262cb',1,'mbed_config.h']]]

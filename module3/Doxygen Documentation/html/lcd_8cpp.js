@@ -11,7 +11,6 @@ var lcd_8cpp =
     [ "lcd_init", "lcd_8cpp.html#ac23e73124dc9fabae95671fe71d074a6", null ],
     [ "lcd_printf", "lcd_8cpp.html#a3c12e31b86febabfc7e62b51e0b9dc30", null ],
     [ "lcd_rs", "lcd_8cpp.html#a71f371524b3288d7b0fd267051cc35df", null ],
-    [ "lcd_set_cursor", "lcd_8cpp.html#a53eb54ae113a7f8efab116263d7d0f3f", null ],
     [ "lcd_splash", "lcd_8cpp.html#a9e0e17291b8140e20094bf8593ad14f1", null ],
     [ "lcd_write", "lcd_8cpp.html#aee74cf01d0b8c77fd2cfee3ff768cce7", null ],
     [ "lcd_write_char", "lcd_8cpp.html#ac0e9243ec53d4e55ba012ed496027e4d", null ],

@@ -1,8 +1,8 @@
 var indexSectionsWithContent =
 {
   0: "_bclmnpstu",
-  1: "lmptu",
-  2: "blmptu",
+  1: "lmpt",
+  2: "blmpt",
   3: "l",
   4: "_bclmnpstu"
 };

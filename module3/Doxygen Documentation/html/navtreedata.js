@@ -38,8 +38,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"files.html",
-"temperature_8h.html#a22ac6634c744443f31c11d45031b77b1"
+"files.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

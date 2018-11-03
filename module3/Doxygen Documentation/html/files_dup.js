@@ -9,7 +9,5 @@ var files_dup =
     [ "mbed_config.h", "mbed__config_8h.html", "mbed__config_8h" ],
     [ "pin_mapping.h", "pin__mapping_8h.html", "pin__mapping_8h" ],
     [ "temperature.cpp", "temperature_8cpp.html", "temperature_8cpp" ],
-    [ "temperature.h", "temperature_8h.html", "temperature_8h" ],
-    [ "uart.cpp", "uart_8cpp.html", "uart_8cpp" ],
-    [ "uart.h", "uart_8h.html", "uart_8h" ]
+    [ "temperature.h", "temperature_8h.html", "temperature_8h" ]
 ];

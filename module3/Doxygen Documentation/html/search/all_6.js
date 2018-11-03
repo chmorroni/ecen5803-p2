@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['pc',['pc',['../uart_8cpp.html#a11f9216cf06942707bb58496153a1b06',1,'uart.cpp']]],
   ['period_5fled_5fblink_5fms',['PERIOD_LED_BLINK_MS',['../main_8cpp.html#a72535d0b960f21221608a56e0865b495',1,'main.cpp']]],
   ['period_5fprint_5fcount_5fms',['PERIOD_PRINT_COUNT_MS',['../main_8cpp.html#a86c1dd93412d8e974b297ec456a03486',1,'main.cpp']]],
   ['period_5fprint_5ftemp_5fms',['PERIOD_PRINT_TEMP_MS',['../main_8cpp.html#aeffda04daa6c17689aa102f1e8d21f00',1,'main.cpp']]],
